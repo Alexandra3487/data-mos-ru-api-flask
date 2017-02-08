@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>My cool flask page</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 <h1>Welcome to this site</h1>
@@ -13,8 +14,24 @@
 n = loop.index0) }}">
            {{ row['Cells']['Name'] }}
         </a>
+        <button data-index="{{loop.index0}}"class="preview_button">preview</button>
     </li>
+    {#Some comment #}
     {% endfor %}
 </ul>
+<script>
+    function show_picture (index) {
+        alert (index)
+    }
+
+    $(document).ready(function() {
+        $(".preview_button").click(
+            function() {
+                show_picture($(this).data('index'))
+            }
+        )
+    })
+
+</script>
 </body>
 </html>
